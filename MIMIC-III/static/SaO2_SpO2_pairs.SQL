@@ -1,8 +1,8 @@
 -- Limiting variable: SaO2
 -- We fetch all possible SaO2. Each of these is aligned with the closest SpO2 value, in a 5min window
 
-DROP TABLE IF EXISTS `db_name.mimiciii_pulseOx.SaO2_SpO2_pairs`;
-CREATE TABLE `db_name.mimiciii_pulseOx.SaO2_SpO2_pairs` AS
+DROP TABLE IF EXISTS `protean-chassis-368116.mimiciii_pulseOx.SaO2_SpO2_pairs`;
+CREATE TABLE `protean-chassis-368116.mimiciii_pulseOx.SaO2_SpO2_pairs` AS
 
 -- Auxiliary to fetch the SaO2 timestamps and get the corresponding SpO2
 WITH pairs AS (
