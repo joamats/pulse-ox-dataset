@@ -60,5 +60,7 @@ AND spo2_vals.itemid = 220277
 
 WHERE spo2_vals.valuenum IS NOT NULL
   AND sao2_vals.valuenum IS NOT NULL
+  AND sao2_vals.valuenum > 0
+  AND sao2_vals.valuenum <= 100
 
 ORDER BY subject_id, stay_id, SaO2_timestamp ASC
