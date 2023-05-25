@@ -36,6 +36,7 @@ AND sao2_vals.itemid = 220227
 LEFT JOIN `protean-chassis-368116.mimiciv_pulseOx.patient_ICU`
 AS pat
 ON pat.subject_id = pairs.subject_id
+AND pat.stay_id = pairs.stay_id
 
 WHERE sao2_vals.valuenum IS NOT NULL
 
