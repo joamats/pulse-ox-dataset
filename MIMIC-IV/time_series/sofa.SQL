@@ -5,8 +5,8 @@
 -- no charttime in derived-sofa table -> used endtime instead
 
 
-DROP TABLE IF EXISTS `protean-chassis-368116.mimiciv_pulseOx.sofa`;
-CREATE TABLE `protean-chassis-368116.mimiciv_pulseOx.sofa` AS
+DROP TABLE IF EXISTS `db_name.mimiciv_pulseOx.sofa`;
+CREATE TABLE `db_name.mimiciv_pulseOx.sofa` AS
 
 WITH 
 
@@ -19,7 +19,7 @@ WITH
     , ROW_NUMBER() OVER(PARTITION BY pairs.stay_id, pairs.SaO2_timestamp
                         ORDER BY ABS(TIMESTAMP_DIFF(pairs.SaO2_timestamp, sofa.endtime, MINUTE)) ASC) AS seq
 
-    FROM `protean-chassis-368116.mimiciv_pulseOx.SaO2_SpO2_pairs` pairs
+    FROM `db_name.mimiciv_pulseOx.SaO2_SpO2_pairs` pairs
 
     LEFT JOIN `physionet-data.mimiciv_derived.sofa` 
     AS sofa
@@ -41,7 +41,7 @@ WITH
     , ROW_NUMBER() OVER(PARTITION BY pairs.stay_id, pairs.SaO2_timestamp
                         ORDER BY ABS(TIMESTAMP_DIFF(pairs.SaO2_timestamp, sofa.endtime, MINUTE)) ASC) AS seq
 
-    FROM `protean-chassis-368116.mimiciv_pulseOx.SaO2_SpO2_pairs` pairs
+    FROM `db_name.mimiciv_pulseOx.SaO2_SpO2_pairs` pairs
 
     LEFT JOIN `physionet-data.mimiciv_derived.sofa` 
     AS sofa
@@ -63,7 +63,7 @@ WITH
     , ROW_NUMBER() OVER(PARTITION BY pairs.stay_id, pairs.SaO2_timestamp
                         ORDER BY ABS(TIMESTAMP_DIFF(pairs.SaO2_timestamp, sofa.endtime, MINUTE)) ASC) AS seq
 
-    FROM `protean-chassis-368116.mimiciv_pulseOx.SaO2_SpO2_pairs` pairs
+    FROM `db_name.mimiciv_pulseOx.SaO2_SpO2_pairs` pairs
 
     LEFT JOIN `physionet-data.mimiciv_derived.sofa` 
     AS sofa
@@ -85,7 +85,7 @@ WITH
     , ROW_NUMBER() OVER(PARTITION BY pairs.stay_id, pairs.SaO2_timestamp
                         ORDER BY ABS(TIMESTAMP_DIFF(pairs.SaO2_timestamp, sofa.endtime, MINUTE)) ASC) AS seq
 
-    FROM `protean-chassis-368116.mimiciv_pulseOx.SaO2_SpO2_pairs` pairs
+    FROM `db_name.mimiciv_pulseOx.SaO2_SpO2_pairs` pairs
 
     LEFT JOIN `physionet-data.mimiciv_derived.sofa` 
     AS sofa
@@ -107,7 +107,7 @@ WITH
     , ROW_NUMBER() OVER(PARTITION BY pairs.stay_id, pairs.SaO2_timestamp
                         ORDER BY ABS(TIMESTAMP_DIFF(pairs.SaO2_timestamp, sofa.endtime, MINUTE)) ASC) AS seq
 
-    FROM `protean-chassis-368116.mimiciv_pulseOx.SaO2_SpO2_pairs` pairs
+    FROM `db_name.mimiciv_pulseOx.SaO2_SpO2_pairs` pairs
 
     LEFT JOIN `physionet-data.mimiciv_derived.sofa` 
     AS sofa
@@ -129,7 +129,7 @@ WITH
     , ROW_NUMBER() OVER(PARTITION BY pairs.stay_id, pairs.SaO2_timestamp
                         ORDER BY ABS(TIMESTAMP_DIFF(pairs.SaO2_timestamp, sofa.endtime, MINUTE)) ASC) AS seq
 
-    FROM `protean-chassis-368116.mimiciv_pulseOx.SaO2_SpO2_pairs` pairs
+    FROM `db_name.mimiciv_pulseOx.SaO2_SpO2_pairs` pairs
 
     LEFT JOIN `physionet-data.mimiciv_derived.sofa` 
     AS sofa
@@ -151,7 +151,7 @@ WITH
     , ROW_NUMBER() OVER(PARTITION BY pairs.stay_id, pairs.SaO2_timestamp
                         ORDER BY ABS(TIMESTAMP_DIFF(pairs.SaO2_timestamp, sofa.endtime, MINUTE)) ASC) AS seq
 
-    FROM `protean-chassis-368116.mimiciv_pulseOx.SaO2_SpO2_pairs` pairs
+    FROM `db_name.mimiciv_pulseOx.SaO2_SpO2_pairs` pairs
 
     LEFT JOIN `physionet-data.mimiciv_derived.sofa` 
     AS sofa
@@ -177,7 +177,7 @@ SELECT
   , sofa_resp.sofa_resp
   , sofa.sofa
 
-FROM `protean-chassis-368116.mimiciv_pulseOx.SaO2_SpO2_pairs` pairs
+FROM `db_name.mimiciv_pulseOx.SaO2_SpO2_pairs` pairs
 
 LEFT JOIN sofa_coag
 ON sofa_coag.stay_id = pairs.stay_id
