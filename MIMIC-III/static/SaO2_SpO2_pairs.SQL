@@ -1,8 +1,8 @@
 -- Limiting variable: SaO2
 -- We fetch all possible SaO2. Each of these is aligned with the closest SpO2 value, in a 5min window
 
-DROP TABLE IF EXISTS `protean-chassis-368116.mimiciii_pulseOx.SaO2_SpO2_pairs`;
-CREATE TABLE `protean-chassis-368116.mimiciii_pulseOx.SaO2_SpO2_pairs` AS
+DROP TABLE IF EXISTS `db_name.mimiciii_pulseOx.SaO2_SpO2_pairs`;
+CREATE TABLE `db_name.mimiciii_pulseOx.SaO2_SpO2_pairs` AS
 
 -- Auxiliary to fetch the SaO2 timestamps and get the corresponding SpO2
 WITH pairs AS (
@@ -18,7 +18,7 @@ WITH pairs AS (
     SELECT 
       icustay_id
     , charttime
-    , CASE WHEN itemid IN (220277) AND valuenum > 0 AND valuenum <= 100 THEN valuenum ELSE NULL END AS SpO2
+    , CASE WHEN itemid IN (220277) AND valuenum >= 70 AND valuenum <= 100 THEN valuenum ELSE NULL END AS SpO2
     FROM `physionet-data.mimiciii_clinical.chartevents` spo2_table
     WHERE itemid = 220277 -- SpO2
   )
@@ -60,7 +60,7 @@ AND spo2_vals.itemid = 220277
 
 WHERE spo2_vals.valuenum IS NOT NULL
   AND sao2_vals.valuenum IS NOT NULL
-  AND sao2_vals.valuenum > 0
+  AND sao2_vals.valuenum >= 70
   AND sao2_vals.valuenum <= 100
 
 ORDER BY subject_id, icustay_id, SaO2_timestamp ASC

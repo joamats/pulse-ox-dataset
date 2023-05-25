@@ -18,7 +18,7 @@ WITH pairs AS (
     SELECT 
       stay_id
     , charttime
-    , CASE WHEN itemid IN (220277) AND valuenum > 0 AND valuenum <= 100 THEN valuenum ELSE NULL END AS SpO2
+    , CASE WHEN itemid IN (220277) AND valuenum >= 70 AND valuenum <= 100 THEN valuenum ELSE NULL END AS SpO2
     FROM `physionet-data.mimiciv_icu.chartevents` spo2_table
     WHERE itemid = 220277 -- SpO2
   )
@@ -60,7 +60,7 @@ AND spo2_vals.itemid = 220277
 
 WHERE spo2_vals.valuenum IS NOT NULL
   AND sao2_vals.valuenum IS NOT NULL
-  AND sao2_vals.valuenum > 0
+  AND sao2_vals.valuenum >= 70
   AND sao2_vals.valuenum <= 100
 
 ORDER BY subject_id, stay_id, SaO2_timestamp ASC
