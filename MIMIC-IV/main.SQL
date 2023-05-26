@@ -12,6 +12,9 @@ USING (subject_id, stay_id, SaO2_timestamp)
 LEFT JOIN `db_name.mimiciv_pulseOx.coagulation` coag
 USING (subject_id, stay_id, SaO2_timestamp)
 
+LEFT JOIN `db_name.mimiciv_pulseOx.chemistry` chem
+USING (subject_id, stay_id, SaO2_timestamp)
+
 LEFT JOIN `db_name.mimiciv_pulseOx.enzyme` enz
 USING (subject_id, stay_id, SaO2_timestamp)
 

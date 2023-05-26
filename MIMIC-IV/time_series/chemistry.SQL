@@ -1,7 +1,7 @@
 -- Chemistry Values include albumin, aniongap, bicarbonate, bun, calcium, chloride, glucose (from the lab), sodium, potassium, ph
 
-DROP TABLE IF EXISTS `db_name.mimiciv_pulseOx.pairs_blood_vitals`;
-CREATE TABLE `db_name.mimiciv_pulseOx.pairs_blood_vitals` AS
+DROP TABLE IF EXISTS `db_name.mimiciv_pulseOx.chemistry`;
+CREATE TABLE `db_name.mimiciv_pulseOx.chemistry` AS
 
 WITH 
 
