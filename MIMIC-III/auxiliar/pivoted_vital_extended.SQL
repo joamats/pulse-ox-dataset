@@ -45,7 +45,7 @@ with ce as
   443, --	Manual BP Mean(calc)
   220052, --"Arterial Blood Pressure mean"
   220181, --"Non Invasive Blood Pressure mean"
-  225312, --"ART BP mean"
+  225312 --"ART BP mean"
 
   )
 )
