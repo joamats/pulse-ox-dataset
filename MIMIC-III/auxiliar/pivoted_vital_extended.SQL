@@ -55,6 +55,9 @@ select
   , avg(sysbp_ni) as sysbp_ni
   , avg(diasbp_ni) as diasbp_ni
   , avg(meanbp_ni) as meanbp_ni
+  , avg(sysbp_i) as sysbp_i
+  , avg(diasbp_i) as diasbp_i
+  , avg(meanbp_i) as meanbp_i
 from ce
 group by ce.icustay_id, ce.charttime
 order by ce.icustay_id, ce.charttime;
