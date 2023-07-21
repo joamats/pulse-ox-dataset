@@ -40,6 +40,8 @@ WITH pairs AS (
 
 SELECT DISTINCT
     pairs.patientunitstayid
+  , patient.patienthealthsystemstayid
+  , patient.uniquepid
   , SaO2_offset
   , sao2_vals.labResult AS SaO2 -- use Lab Result to Get NUMERIC values only
   , (SpO2_offset - SaO2_offset) AS delta_SpO2
@@ -57,6 +59,9 @@ LEFT JOIN `physionet-data.eicu_crd_derived.pivoted_vital`
 AS spo2_vals
 ON spo2_vals.patientunitstayid = pairs.patientunitstayid
 AND spo2_vals.chartoffset = pairs.SpO2_offset
+
+LEFT JOIN `physionet-data.eicu_crd.patient` AS patient
+ON patient.patientunitstayid = pairs.patientunitstayid
 
 WHERE spo2_vals.spo2 IS NOT NULL
 AND sao2_vals.labResult >= 70
