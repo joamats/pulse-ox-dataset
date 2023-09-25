@@ -1,4 +1,5 @@
-# Open-Source Pulse Oximetry and Arterial Blood Gas Dataset
+# BOLD: Blood-gas and Oximetry Linked Dataset
+An open-source pulse oximetry and arterial blood gas dataset 
 
 This repository contains 4 main notebooks:
 
