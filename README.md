@@ -11,6 +11,8 @@ This repository contains 4 main notebooks:
 
 * `4_technical_validation.ipynb` - the code for the technical validation and the figures in the manuscript
 
+* `5_missingness.ipynb` - the code for the missingness report by racial and ethnic group (requested upon peer-review)
+
 These Google Spreadsheets contain the variables and mappings used in the dataset harmonization:
 
 * [Variables](https://docs.google.com/spreadsheets/d/1W4PS3__-jF3m8OemERsv2r_b9sfACWIr-JQcPxW2A7c/edit#gid=0)
